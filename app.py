@@ -20,11 +20,10 @@ def new():
     return render_template("vat.html")
 @app.route('/<encoded>', methods=['POST', 'GET'])
 def info(encoded):
-    print(encoded)
-    ty=Vattable.query.first()
+
 
     cure = Vattable.query.filter_by(barcode=str(encoded)).first()
-    print(cure,ty.barcode)
+
     if cure:
             r1 = cure.seller_name
             r2 = cure.vat_no
